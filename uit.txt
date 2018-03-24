@@ -1,0 +1,116 @@
+#include<iostream>
+#include<stdio.h>
+#include<time.h>
+#include<windows.h>
+#include<stdlib.h>
+using namespace std;
+class  animal  //定义的动物父类
+{
+	public:
+	char colour[100];
+	int lianling;
+	char xingbie[100];
+		virtual void speak1(int i)
+		{
+			if(i>=0&&i<=2)
+			cout<<"亲爱的用户,我还在成长,嗯~~~~~~"<<endl;
+			else if(i>=3&&i<=6)
+			cout<<"亲爱的用户,我是你的宠物狗狗,汪~~~~~~~汪"<<endl;
+			else
+				cout<<"不符合宠物年龄段"<<endl;
+		}
+		virtual void speak2(int i)
+		{
+			if(i>=0&&i<=2)
+				cout<<"亲爱的用户,我还在成长,咦~~~~~~~"<<endl;
+			else if(i>=3&&i<=6)
+			cout<<"亲爱的用户,我是你的宠物小猫,喵喵喵喵"<<endl;
+			else
+				cout<<"不符合宠物的年龄段"<<endl;
+		}
+		 void haha();
+		 void panduan(int i);
+	};
+class dogs:public animal //定义动物基类的派生类
+{
+	public:
+	 void speak1()
+	 {
+	 		cout<<"亲爱的用户,我是你的宠物狗狗,汪汪汪汪"<<endl;
+	 }
+	 int xinxi(){
+		 char name[100];
+		 cout<<"请输入宠物的姓名"<<endl;
+		 cin>>name;
+		 cout<<"请输入宠物的颜色"<<endl;
+		cin>>colour;
+		 cout<<"请输入宠物的年龄"<<endl;
+		 cin>>lianling;
+		 cout<<"请输入宠物的性别"<<endl;
+		 cin>>xingbie;
+		 return lianling;
+	 }
+
+};
+class cats:public animal //定义动物的基类的派生类
+{
+	public:
+	void speak2()
+	{
+		
+		cout<<"亲爱的用户,我是你的宠物小猫,喵喵喵喵"<<endl; 
+	 } 
+	int xinxi1(){
+		 char name[100];
+		 cout<<"请输入宠物的姓名"<<endl;
+		 cin>>name;
+		 cout<<"请输入宠物的颜色"<<endl;
+		cin>>colour;
+		 cout<<"请输入宠物的年龄"<<endl;
+		 cin>>lianling;
+		 cout<<"请输入宠物的性别"<<endl;
+		 cin>>xingbie;
+		 return lianling;
+	}
+
+};
+int main()
+{
+	dogs wap;
+	cats fei;
+	int n,t;
+	int m;
+	char s;
+	dogs a;
+	cats b;
+	animal si;
+	animal *p1=&a;
+	animal *p2=&b;
+	si.haha();
+	cout<<"				              欢迎进入宠物叫声模拟             			"<<endl;
+	Sleep(3000);
+	cout<<"                        A:宠物狗的叫声                                     B:宠物猫的叫声"<<endl;
+	cin>>s;
+	system("cls");
+	if(s=='a'||s=='A'){
+	n=wap.xinxi();
+	p1->speak1(n);
+	exit(0);
+	}
+	if(s=='b'||s=='B')
+	fei.xinxi1();
+	m=fei.xinxi1();
+	p2->speak2(m);
+	if(s!='a'&&s!='A'&&s!='b'&&s!='B')
+		cout<<"您输入的宠物还未添加  退出还是继续选择     继续扣1"<<endl;
+	return 0;	
+}
+void animal::haha()
+{
+	int i,j=15;
+	for(i=0;i<j;i++)
+		cout<<" "<<endl;
+}
+
+
+
